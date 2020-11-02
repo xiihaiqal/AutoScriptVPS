@@ -27,7 +27,7 @@
 <h3 align="center">Installation (Default Version)</h3>
 
   ```html
-wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript.sh && chmod +x AutoScript.sh && ./AutoScript.sh
+wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript && chmod +x AutoScript && ./AutoScript
   ```
   
 <h3 align="center">Additional Info</h3>
