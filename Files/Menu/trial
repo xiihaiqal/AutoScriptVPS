@@ -1,0 +1,75 @@
+#!/bin/bash
+# Created by xiihaiqal
+red='\e[31m'
+green='\e[32m'
+NC='\e[0m'
+echo -e "\e[36m------------------------------------------\e[0m"
+MYIP=$(wget -qO- ipv4.icanhazip.com)
+passrandom=$(cat /dev/urandom | tr -dc '0-9' | fold -w 6 | head -n 1)
+
+username=TRIAL
+egrep "^$username" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+# proses mengganti password
+  echo -e "$passrandom\n$passrandom" | passwd $username
+  clear
+  echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo -e " \e[36m※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※
+ ※                                 ※
+ ※\e[0m   WELCOME MY SYSTEM KingKongVPN \e[36m※
+ ※                                 ※
+ ※\e[0m   \e[35mWhatsApp\e[0m    \e[36m:\e[0m \e[33m+60178760080\e[0m    \e[36m※
+ ※\e[0m   \e[35mTelegram\e[0m    \e[36m:\e[0m \e[33m@xiihaiqal\e[0m      \e[36m※
+ ※\e[0m   \e[35mFacebook\e[0m    \e[36m:\e[0m \e[33m@xiihaiqal\e[0m      \e[36m※
+ ※                                 ※
+ ※\e[0m        \e[31m©\e[0m KingKongVPN™ \e[31m®\e[0m         \e[36m※
+ ※                                 ※
+ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※\e[0m";
+	echo "
+ ◎ Details For TRIAL Account ◎";
+	echo " ";
+  echo -e "  \e[34m※\e[0m Username : \e[34m$username\e[0m";
+  echo -e "  ${green}※${NC} Password : \e[32m$passrandom\e[0m";
+  echo " ";
+  echo " ♡ ALWAYS SUPPORTED KingKongVPN™ ♡";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+  
+else
+  useradd TRIAL
+  usermod -s /bin/false trial
+  egrep "^$username" /etc/passwd >/dev/null
+  echo -e "$passrandom\n$passrandom" | passwd $username
+  clear
+  echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo -e " \e[36m※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※
+ ※                                 ※
+ ※\e[0m   WELCOME MY SYSTEM KingKongVPN \e[36m※
+ ※                                 ※
+ ※\e[0m   \e[35mWhatsApp\e[0m    \e[36m:\e[0m \e[33m+60178760080\e[0m    \e[36m※
+ ※\e[0m   \e[35mTelegram\e[0m    \e[36m:\e[0m \e[33m@xiihaiqal\e[0m      \e[36m※
+ ※\e[0m   \e[35mFacebook\e[0m    \e[36m:\e[0m \e[33m@xiihaiqal\e[0m      \e[36m※
+ ※                                 ※
+ ※\e[0m        \e[31m©\e[0m KingKongVPN™ \e[31m®\e[0m         \e[36m※
+ ※                                 ※
+ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※\e[0m";
+	echo "
+ ◎ Details For TRIAL Account ◎";
+	echo " ";
+  echo -e "  \e[34m※\e[0m Username : \e[34m$username\e[0m";
+  echo -e "  ${green}※${NC} Password : \e[32m$passrandom\e[0m";
+  echo " ";
+  echo " ♡ ALWAYS SUPPORTED KingKongVPN™ ♡";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+fi

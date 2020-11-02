@@ -1,0 +1,44 @@
+#!/bin/bash
+# Created by xiihaiqal
+# Uban User.
+red='\e[31m'
+green='\e[32m'
+blue='\e[34m'
+NC='\e[0m'
+echo -e "\e[36m------------------------------------------\e[0m"
+read -p "※ Enter Username To Be Unlock : " username
+egrep "^$username" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+# proses mengganti passwordnya
+passwd -u $username
+clear
+  echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo -e " \e[36m※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※
+ ※                                 ※
+ ※\e[0m   WELCOME MY SYSTEM KingKongVPN \e[36m※
+ ※                                 ※
+ ※\e[0m   \e[35mWhatsApp\e[0m    \e[36m:\e[0m \e[33m+60178760080\e[0m    \e[36m※
+ ※\e[0m   \e[35mTelegram\e[0m    \e[36m:\e[0m \e[33m@xiihaiqal\e[0m      \e[36m※
+ ※\e[0m   \e[35mFacebook\e[0m    \e[36m:\e[0m \e[33m@xiihaiqal\e[0m      \e[36m※
+ ※                                 ※
+ ※\e[0m        \e[31m©\e[0m KingKongVPN™ \e[31m®\e[0m         \e[36m※
+ ※                                 ※
+ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※\e[0m";
+	echo "
+ ◎ Your Account Status ◎";
+  echo " "
+  echo -e "  \e[34m※\e[0m Username : ${blue}$username${NC}";
+  echo -e "  \e[32m※\e[0m Status   : ${green}UNLOCKED${NC}";
+  echo " ";
+  echo " ★ POWER BY KingKongVPN™ SERVER ★";
+  echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+else
+echo "Username ${red}$username${NC} Does Not Exist ..!"
+    exit 1
+fi
