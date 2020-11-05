@@ -1,6 +1,6 @@
 <h1 align="center">Premium AutoScript <img src="https://img.shields.io/badge/Version-2.0.4-blue.svg"></h1>
 
-<p align="center">VPN AutoScript is made by KingKongVPN to minimize the time consumed and user involvement in setting up your VPS</p>
+<p align="center">VPN AutoScript is made by CCS_TechnologyVPN to minimize the time consumed and user involvement in setting up your VPS</p>
 
 <h3 align="center">Supported Linux Distribution</h3>
 <p align="center">
