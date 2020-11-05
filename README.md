@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
   
 <h3 align="center">Additional Info</h3>
 <p align="center">
-Recommended OS: Debian 9 Buster x64
+Recommended OS: Debian 9 Stretch x64
 
 <h3 align="center">Screenshots</h3>
 <p align="center">
