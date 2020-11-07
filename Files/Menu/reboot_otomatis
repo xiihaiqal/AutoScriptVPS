@@ -1,0 +1,5 @@
+#!/bin/bash
+tanggal=$(date +"%m-%d-%Y")
+waktu=$(date +"%T")
+echo "Sucsesfully Reboot On $tanggal Time $waktu." >> /root/log-reboot.txt
+/sbin/shutdown -r now
