@@ -5,7 +5,7 @@
 <h3 align="center">Supported Linux Distribution</h3>
 <p align="center">
   <a><img src="https://img.shields.io/badge/Supported%20Linux%20x64-Debian%3A%207%2C%208%2C%209%20--%20Ubuntu%3A%2014%2C%2016%2C%2018%20%26%20above-yellowgreen.svg"></a>
-  <a><img src="https://img.shields.io/badge/Supported%20Linux%20x64-Debian%3A%207%2C%208%2C%209%20--%20Ubuntu%3A%2014%2C%2016%2C%2018%20%26%20above-yellowgreen.svg"></a>
+
   
 </p>
 <h3 align="center">Services</h3>
