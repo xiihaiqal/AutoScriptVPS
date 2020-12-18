@@ -10,7 +10,7 @@ echo -e "\e[36m------------------------------------------\e[0m"
 read -p "※ Total User To Generate : " banyakuser
 read -p "※ Total Days To Exp Or Y-M-D : " expdate
 today="$(date +"%Y-%m-%d")"
-expire=$(date -d "$aktif days" +"%Y-%m-%d")
+expire=$(date -d "$expdate" +"%Y-%m-%d")
 clear
 echo " "
 echo " "
@@ -20,10 +20,10 @@ echo -e "\e[36m------------------------------\e[0m"
 echo "◎ Details For Your Account ◎"
 echo -e "\e[36m------------------------------------------------\e[0m"
 echo "Host/IP : $IP"
-echo "Squid3 : 8080"  
+echo "Squid3 : 8080,8000"  
 echo "OpenSSH : 22"  
-echo "Dropbear : 143, 443"
-echo "Stunnel : 222/dropbear, 333/ovpn, 444/squid"  
+echo "Dropbear :442"
+echo "Stunnel : 443/dropbear"  
 echo "OpenVPN : TCP 443
 Client config : http://$IP/client.ovpn"  
   echo -e "\e[36m------------------------------------------------\e[0m"
