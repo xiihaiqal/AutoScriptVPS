@@ -7,10 +7,10 @@ yellow='\e[33m'
 NC='\e[0m'
 IP=$(wget -qO- ipv4.icanhazip.com)
 echo -e "\e[36m------------------------------------------\e[0m"
-read -p "※ Total User To Generate : " banyakuser
-read -p "※ Total Days To Exp Or Y-M-D : " expdate
+read -p "※ Total User To Generate     : " banyakuser
+read -p "※ Total Days To Exp Or Y-M-D : " aktif
 today="$(date +"%Y-%m-%d")"
-expire=$(date -d "$expdate" +"%Y-%m-%d")
+expire=$(date -d "$aktif days" +"%Y-%m-%d")
 clear
 echo " "
 echo " "
@@ -19,13 +19,13 @@ echo -e "\e[31m※\e[0m \e[33mPOWER BY KingKongVPN™ SERVER\e[0m \e[31m※\e[0m
 echo -e "\e[36m------------------------------\e[0m"
 echo "◎ Details For Your Account ◎"
 echo -e "\e[36m------------------------------------------------\e[0m"
-echo "Host/IP : $IP"
-echo "Squid3 : 8080,8000"  
-echo "OpenSSH : 22"  
-echo "Dropbear :442"
-echo "Stunnel : 443/dropbear"  
-echo "OpenVPN : TCP 443
-Client config : http://$IP/client.ovpn"  
+echo "   Host/IP        : $IP"
+echo "   OpenSSH        : 22"
+echo "   OpenVPN        : 110"
+echo "   Stunnel        : 443,444"
+echo "   Dropbear       : 442"
+echo "   Squid Proxy    : 8080, 3128"
+echo "   OpenVPN Config : http://$IP/configs.zip" 
   echo -e "\e[36m------------------------------------------------\e[0m"
 for (( i=1; i <= $banyakuser; i++ ))
 do
