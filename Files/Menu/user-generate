@@ -8,7 +8,7 @@ NC='\e[0m'
 IP=$(wget -qO- ipv4.icanhazip.com)
 echo -e "\e[36m------------------------------------------\e[0m"
 read -p "※ Total User To Generate     : " banyakuser
-read -p "※ Total Days To Exp Or Y-M-D : " aktif
+read -p "※ Total Days To Exp Or Y-M-D : " aktif days
 today="$(date +"%Y-%m-%d")"
 expire=$(date -d "$aktif days" +"%Y-%m-%d")
 clear
