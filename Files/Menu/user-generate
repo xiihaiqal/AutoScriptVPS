@@ -27,13 +27,13 @@ echo "  Dropbear       : 442"
 echo "  Squid Proxy    : 8080, 3128"
 echo "  OpenVPN Config : http://$IP/configs.zip" 
   echo -e "\e[36m------------------------------------------------\e[0m"
+   echo -e "\e[35mBIL\e[0m   \e[34mUSER\e[0m   \e[32mPASS\e[0m"
 for (( i=1; i <= $banyakuser; i++ ))
 do
 	USER=`cat /dev/urandom | tr -dc 'a-z' | fold -w 4 | head -n 1`
 	useradd -M -N -s /bin/false -e $expire $USER
 	PASS=`cat /dev/urandom | tr -dc '0-9' | fold -w 4 | head -n 1`;
 	echo $USER:$PASS | chpasswd
-  echo -e "\e[35mBIL\e[0m   \e[34mUSER\e[0m   \e[32mPASS\e[0m"
   echo -e "\e[36m-----------------\e[0m"
 	echo -e "\e[35m$i.\e[0m    \e[34m$USER\e[0m   \e[32m$PASS\e[0m"
 done
