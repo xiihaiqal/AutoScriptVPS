@@ -35,7 +35,6 @@ do
 	echo $USER:$PASS | chpasswd
   echo -e "\e[35mBIL\e[0m   \e[34mUSER\e[0m   \e[32mPASS\e[0m"
   echo -e "\e[36m-----------------\e[0m"
-	echo -e "\e[35m$i.\e[0m    \e[34m$USER\e[0m   \e[32m$PASS\e[0m"
 done
 
   echo -e "\e[36m---------------------------\e[0m"
