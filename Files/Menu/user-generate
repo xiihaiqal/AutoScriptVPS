@@ -26,7 +26,7 @@ echo "  Stunnel        : 443,444"
 echo "  Dropbear       : 442"
 echo "  Squid Proxy    : 8080, 3128"
 echo "  OpenVPN Config : http://$IP/configs.zip" 
-  echo -e "\e[36m------------------------------------------------\e[0m"
+echo -e "\e[36m------------------------------------------------\e[0m"
    echo -e "\e[35mBIL\e[0m   \e[34mUSER\e[0m   \e[32mPASS\e[0m"
 for (( i=1; i <= $banyakuser; i++ ))
 do
