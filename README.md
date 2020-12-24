@@ -13,9 +13,21 @@
 
 ## Installation :
 
-`
-apt-get install wget -y && wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript && chmod +x AutoScript && ./AutoScript
-`
+  ```html
+wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript && chmod +x AutoScript && ./AutoScript
+  ```
+<h3 align="center">Screenshots</h3>
+<p align="center">
+<img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/1.png">
+   </p>
+  <p align="center">
+  <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/2.png">
+   </p>
+  <p align="center">
+  <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/3.png">
+   </p>
+   
+
 
 ## Description :
 
