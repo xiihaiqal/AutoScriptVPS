@@ -34,7 +34,7 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 ### Port :
 * OpenSSH Port : 22
 * Dropbear Port : 442
-* OpenVPN Port : 1194. 25000
+* OpenVPN Port : 110. 25000
 * Stunnel Port :443, 444
 * Squid  Port : 8080, 8000
 * Badvpn Port : 7300
