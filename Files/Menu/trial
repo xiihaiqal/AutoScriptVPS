@@ -6,6 +6,7 @@ NC='\e[0m'
 echo -e "\e[36m------------------------------------------\e[0m"
 MYIP=$(wget -qO- ipv4.icanhazip.com)
 passrandom=$(cat /dev/urandom | tr -dc '0-9' | fold -w 6 | head -n 1)
+hari="1"
 
 username=TRIAL
 egrep "^$username" /etc/passwd >/dev/null
@@ -41,10 +42,8 @@ if [ $? -eq 0 ]; then
 	echo " ";
   
 else
-  useradd TRIAL
-  usermod -s /bin/false trial
-  egrep "^$username" /etc/passwd >/dev/null
-  echo -e "$passrandom\n$passrandom" | passwd $username
+useradd -e `date -d "$hari days" +"%Y-%m-%d"` -s /bin/false -M $username
+echo -e "$passrandom\n$passrandom\n"|passwd $Login &> /dev/null
   clear
   echo " ";
 	echo " ";
