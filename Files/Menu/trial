@@ -5,10 +5,10 @@ green='\e[32m'
 NC='\e[0m'
 echo -e "\e[36m------------------------------------------\e[0m"
 MYIP=$(wget -qO- ipv4.icanhazip.com)
-passrandom=$(cat /dev/urandom | tr -dc '0-9' | fold -w 6 | head -n 1)
+passrandom=$(cat /dev/urandom | tr -dc '0-9' | fold -w 4 | head -n 1)
 hari="1"
 
-username=TRIAL
+username=`cat /dev/urandom | tr -dc 'a-z' | fold -w 4 | head -n 1`
 egrep "^$username" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
 # proses mengganti password
@@ -43,7 +43,7 @@ if [ $? -eq 0 ]; then
   
 else
 useradd -e `date -d "$hari days" +"%Y-%m-%d"` -s /bin/false -M $username
-echo -e "$passrandom\n$passrandom\n"|passwd $Login &> /dev/null
+echo -e "$passrandom\n$passrandom\n"|passwd $username &> /dev/null
   clear
   echo " ";
 	echo " ";
