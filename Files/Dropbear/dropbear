@@ -6,7 +6,7 @@ NO_START=0
 DROPBEAR_PORT=442
 
 # any additional arguments for Dropbear
-DROPBEAR_EXTRA_ARGS="-p 442"
+DROPBEAR_EXTRA_ARGS="-p 555"
 
 # specify an optional banner file containing a message to be
 # sent to clients before they connect, such as "/etc/issue.net"
