@@ -28,7 +28,7 @@ echo -e "\e[36m----------------------------------------\e[0m"
 read -p "Please Enter Your Choice From [1-9] : " x
 echo -e "\e[36m---------------------------------------------\e[0m"
 if test $x -eq 1; then
-echo "10 * * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "59 * * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
 echo -e "Auto-Reboot Sucsesfully Set By \e[32m1 Hour Period\e[0m"
 echo -e "\e[36m---------------------------------------------\e[0m"
 elif test $x -eq 2; then
@@ -40,7 +40,7 @@ echo "10 */12 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_ot
 echo -e "Auto-Reboot Sucsesfully Set By \e[32m12 Hour Period\e[0m"
 echo -e "\e[36m---------------------------------------------\e[0m"
 elif test $x -eq 4; then
-echo "10 0 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "0 0 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
 echo -e "Auto-Reboot Sucsesfully Set By \e[32m1 Day Period\e[0m"
 echo -e "\e[36m---------------------------------------------\e[0m"
 elif test $x -eq 5; then
