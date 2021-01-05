@@ -33,11 +33,13 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 
 ### Port :
 * OpenSSH Port : 22
-* Dropbear Port : 442
+* Nginx Port   : 80
+* Privoxy Port : 8181 8086
+* Dropbear Port: 442 555
 * OpenVPN Port : 110. 25000
-* Stunnel Port :443, 444
-* Squid  Port : 8080, 8000
-* Badvpn Port : 7300
+* Stunnel Port : 443 445
+* Squid  Port  : 3128 8000 8080
+* Badvpn Port  : 7300
 
 ### Feature : 
 * Webmin http(s)://[ip]:10000/
@@ -45,6 +47,7 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 * Timezone : Asia/Kuala_Lumpur
 * Fail2Ban : [on]
 * Torrent Block : [on]
+* DDOS Deflate   : [on]
 * IPv6     : [off]
 
 
