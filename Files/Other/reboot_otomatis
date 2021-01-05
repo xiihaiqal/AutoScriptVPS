@@ -1,1 +1,1 @@
-10 0 * * * root /usr/local/bin/reboot_otomatis
+0 0 * * * root /usr/local/bin/reboot_otomatis
