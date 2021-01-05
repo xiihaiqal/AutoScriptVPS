@@ -53,5 +53,10 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 * DDOS Deflate   : [on]
 * IPv6     : [off]
 
+## Credit :
+* ARA-(®POWERRANGERS OFFICIAL™®)
+* John Ford
+* _Dreyannz_
 
 ## Donations :  <a href="https://paypal.me/kingkongvpn" target=”_blank”><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=paypal&label=Paypal&message=Click%20Here&color=blue"></a>
+
