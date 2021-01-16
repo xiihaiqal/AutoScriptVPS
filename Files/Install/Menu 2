@@ -11,6 +11,7 @@ color1='\e[031;1m'
 color2='\e[34;1m'
 color3='\e[0m'
 
+clear
 echo -e "${color1}========================================${color3}"
 echo -e "* ${color2}SCRIPT AUTO INSTALL BY KingKongVPN ${color3}*"
 echo -e "${color1}========================================${color3}"
