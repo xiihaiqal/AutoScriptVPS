@@ -21,9 +21,6 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/1.png">
    </p>
   <p align="center">
-  <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/2.png">
-   </p>
-  <p align="center">
   <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/3.png">
    </p>
   <p align="center">
