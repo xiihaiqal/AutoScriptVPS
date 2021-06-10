@@ -33,7 +33,7 @@ clear
   echo -e "  \e[34m※\e[0m Username : ${blue}$username${NC}";
   echo -e "  \e[32m※\e[0m Status   : ${green}UNLOCKED${NC}";
   echo " ";
-  echo " ★ POWER BY KingKongVPN™ SERVER ★";
+  echo " ★ POWER BY KINGKONGVPN™ SERVER ★";
   echo " ";
 	echo " ";
 	echo " ";
