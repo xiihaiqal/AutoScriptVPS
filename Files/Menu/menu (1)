@@ -1,0 +1,528 @@
+#!/bin/bash
+color1='\e[031;1m'
+color2='\e[34;1m'
+color3='\e[0m'
+
+function create_user() {
+  echo -e "\e[36m------------------------------------------\e[0m"
+	read -p "※ Enter Username : " uname
+	egrep "^$uname:" /etc/passwd >/dev/null
+	if [ $? -eq 0 ]; then
+	echo -e "Username \e[31m$uname\e[0m Already Register ..!"
+	exit 1
+	else
+	read -p "※ Enter Password : " pass
+	read -p "※ Total Days To Exp Or Y-M-D : " expdate
+	today="$(date +"%Y-%m-%d")"
+	expire=$(date -d "$expdate days" +"%Y-%m-%d")
+	useradd -M -N -s /bin/false -e $expire $uname
+	echo $uname:$pass | chpasswd
+	myip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1`;
+	myip2="s/xxxxxxxxx/$myip/g";
+clear
+	echo " ";
+	echo " ";
+	echo " ";
+	echo -e " \e[36m※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※
+ ※                                 ※
+ ※\e[0m  WELCOME MY SYSTEM KINGKONGVPN  \e[36m※
+ ※                                 ※
+ ※\e[0m   \e[35mWhatsApp\e[0m   \e[36m:\e[0m \e[33m+60178760080\e[0m     \e[36m※
+ ※\e[0m   \e[35mTelegram\e[0m   \e[36m:\e[0m \e[33m@xiihaiqal\e[0m       \e[36m※
+ ※                                 ※
+ ※\e[0m        \e[31m©\e[0m KINGKONGVPN™ \e[31m®\e[0m         \e[36m※
+ ※                                 ※
+ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※\e[0m";
+	echo "
+ ◎ Details For Your Account ◎";
+	echo " ";
+	echo -e "  \e[34m※\e[0m Username   : \e[34m$uname\e[0m";
+	echo -e "  \e[34m※\e[0m Password   : \e[34m$pass\e[0m";
+	echo -e "  \e[32m※\e[0m Expired On : \e[32m$(date -d "$expdate days" +"%d-%m-%Y")\e[0m";
+	echo " ";
+	echo " ♡ TQ FOR SUPPORT KINGKONGVPN™ ♡";
+	echo " ";
+	echo " ";
+	echo " ";
+	fi
+}
+
+function renew_user() {
+  echo -e "\e[36m------------------------------------------\e[0m"
+    read -p "※ Enter Username To Renew    : " uname
+    egrep "^$uname" /etc/passwd >/dev/null
+	if [ $? -eq 1 ]; then
+	echo -e "Username \e[31m$uname\e[0m Does Not Exist ..!"
+	exit 1
+	else
+	exp="$(chage -l $uname | grep "Account expires" | awk -F": " '{print $2}')"
+	exp1=`date -d "$exp now" +"%Y-%m-%d"`
+	exp2=`date -d "$exp days" +%s`
+	currentdate=`date +%s`
+	exp3=$(($exp2 - $currentdate)) 
+	exp4=$(($exp3 / 86400))  
+  echo -e "* Today Date Y-M-D           : \e[34m$(date -d today +"%Y-%m-%d")\e[0m"
+  echo -e "* Current Expiry Date Y-M-D  : \e[33m$exp1\e[0m"
+  echo -e "* Remaining Days To Expiry   : \e[31m$exp4\e[0m"
+    read -p "* Total Days To Exp Or Y-M-D : " expdate
+    today="$(date +"%Y-%m-%d")"
+	expire=$(date -d "$expdate days" +"%Y-%m-%d")
+    usermod -e $expire $uname
+clear
+	echo " ";
+	echo " ";
+	echo -e " \e[36m※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※
+ ※                                 ※
+ ※\e[0m  WELCOME MY SYSTEM KINGKONGVPN  \e[36m※
+ ※                                 ※
+ ※\e[0m   \e[35mWhatsApp\e[0m   \e[36m:\e[0m \e[33m+60178760080\e[0m     \e[36m※
+ ※\e[0m   \e[35mTelegram\e[0m   \e[36m:\e[0m \e[33m@xiihaiqal\e[0m       \e[36m※
+ ※                                 ※
+ ※\e[0m        \e[31m©\e[0m KINGKONGVPN™ \e[31m®\e[0m         \e[36m※
+ ※                                 ※
+ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※\e[0m"; 
+	echo "
+ ◎ Details For Your Account ◎";
+	echo " ";
+	echo -e "  \e[34m※\e[0m Username   : \e[34m$uname\e[0m";
+	echo -e "  \e[32m※\e[0m New Expiry : \e[32m$(date -d "$expdate days" +"%d-%m-%Y")\e[0m";
+	echo " ";
+	echo " ♡ TQ FOR SUPPORT KINGKONGVPN™ ♡";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+	echo " ";
+	fi
+}
+
+function delete_user(){
+echo -e "\e[36m------------------------------------------\e[0m"
+read -p "Enter Username To Be Remove : " username
+
+egrep "^$username" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+	read -p "Delete User '$username' → [y/n] ..? : " -e -i y REMOVE
+	if [[ "$REMOVE" = 'y' ]]; then
+		userdel $username
+    echo -e "\e[36m------------------------------------------\e[0m"
+		echo -e "\e[33mSuccesfully Delete User\e[0m \e[34m$username\e[0m"
+    echo -e "\e[36m------------------------------------------\e[0m"
+	else
+		echo -e "Delete Account \e[34m$username\e[0m \e[31mCancelled ..!\e[0m"
+    echo -e "\e[36m------------------------------------------\e[0m"
+	fi
+else
+	echo -e "Username \e[31m$username\e[0m Does Not Exist ..!"
+  echo -e "\e[36m------------------------------------------\e[0m"
+	exit 1
+fi
+}
+
+function mon_ssh(){
+clear
+echo -e "\e[31m※\e[0m \e[33mPOWER BY KINGKONGVPN™ SERVER\e[0m \e[31m※\e[0m"
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+echo -e " Date-Time      \e[36m|\e[0m  PID  \e[36m|\e[0m    User Name    \e[36m|\e[0m    From IP  "
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+
+data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
+
+echo -e "\e[36m================\e[0m\e[36m[\e[0m \e[32mChecking Dropbear Login\e[0m \e[36m]\e[0m\e[36m================\e[0m";
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+
+for PID in "${data[@]}"
+do
+	#echo "check $PID";
+	NUM=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | wc -l`;
+	USER=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | awk -F" " '{print $10}'`;
+	IP=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | awk -F" " '{print $12}'`;
+	waktu=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | awk -F" " '{print $1,$2,$3}'`;
+	if [ $NUM -eq 1 ]; then
+    printf "%-17s %-7s %-17s %-15s\n" "$waktu" "$PID" "$USER" "$IP"
+	fi
+done
+
+
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+
+data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
+
+echo -e "\e[36m================\e[0m\e[36m[\e[0m \e[32mChecking Open SSH Login\e[0m \e[36m]\e[0m\e[36m================\e[0m";
+
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+for PID in "${data[@]}"
+do
+        #echo "check $PID";
+		NUM=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | wc -l`;
+		USER=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $9}'`;
+		IP=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $11}'`;
+		waktu=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $1,$2,$3}'`;
+        if [ $NUM -eq 1 ]; then
+                printf "%-17s %-7s %-17s %-15s\n" "$waktu" "$PID" "$USER" "$IP"
+        fi
+done
+if [ -f "/etc/openvpn/tcp_stats.log" ]; then
+	line=`cat /etc/openvpn/tcp_stats.log | wc -l`
+	a=$((3+((line-8)/2)))
+	b=$(((line-8)/2))
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+echo -e "\e[36m===============\e[0m\e[36m[\e[0m \e[32mChecking OpenVPN TCP Login\e[0m \e[36m]\e[0m\e[36m==============\e[0m";
+	echo -e "\e[36m-----------------------------------------------------------\e[0m"
+	cat /etc/openvpn/tcp_stats.log | head -n $a | tail -n $b | cut -d "," -f 1,2,5 | sed -e 's/,/   /g' > /tmp/vpn-login-db.txt
+	cat /tmp/vpn-login-db.txt
+fi
+
+if [ -f "/etc/openvpn/udp_stats.log" ]; then
+	line=`cat /etc/openvpn/udp_stats.log | wc -l`
+	a=$((3+((line-8)/2)))
+	b=$(((line-8)/2))
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+echo -e "\e[36m===============\e[0m\e[36m[\e[0m \e[32mChecking OpenVPN UDP Login\e[0m \e[36m]\e[0m\e[36m==============\e[0m";
+	echo -e "\e[36m-----------------------------------------------------------\e[0m"
+	cat /etc/openvpn/udp_stats.log | head -n $a | tail -n $b | cut -d "," -f 1,2,5 | sed -e 's/,/   /g' > /tmp/vpn-login-db.txt
+	cat /tmp/vpn-login-db.txt
+echo -e "\e[36m-----------------------------------------------------------\e[0m"
+fi
+}
+
+function user_list(){
+clear
+echo -e "\e[31m※\e[0m \e[33mPOWER BY KINGKONGVPN™ SERVER\e[0m \e[31m※\e[0m"
+echo -e "\e[36m--------------------------------------------\e[0m"
+echo "BIL  USERNAME        STATUS       EXP DATE   "
+echo -e "\e[36m--------------------------------------------\e[0m"
+C=1
+ON=0
+OFF=0
+while read mumetndase
+do
+        AKUN="$(echo $mumetndase | cut -d: -f1)"
+        ID="$(echo $mumetndase | grep -v nobody | cut -d: -f3)"
+        exp="$(chage -l $AKUN | grep "Account expires" | awk -F": " '{print $2}')"
+        cat /etc/openvpn/tcp_stats.log /etc/openvpn/udp_stats.log > /etc/openvpn/openvpn-status.log
+        online="$(cat /etc/openvpn/openvpn-status.log | grep -Eom 1 $AKUN | grep -Eom 1 $AKUN)"
+        if [[ $ID -ge 500 ]]; then
+        if [[ -z $online ]]; then
+        printf "%-4s %-15s %-10s %-3s\n" "$C." "$AKUN" "OFFLINE" "$exp"
+        OFF=$((OFF+1))
+        else
+        printf "%-4s %-15s %-10s %-3s\n" "$C." "$AKUN" "ONLINE" "$exp"
+        ON=$((ON+1))
+        fi
+        C=$((C+1))
+        fi
+JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+done < /etc/passwd
+echo -e "\e[36m----------------------------------------------\e[0m"
+echo -e "TOTAL USER : \e[34m$JUMLAH\e[0m    ONLINE : \e[32m$ON\e[0m    OFFLINE : \e[31m$OFF\e[0m"
+echo -e "\e[36m----------------------------------------------\e[0m"
+}
+
+function expired_users(){
+clear
+echo -e "\e[32m※\e[0m \e[34mPOWER BY KINGKONGVPN™ SERVER\e[0m \e[32m※\e[0m"
+echo -e "\e[36m---------------------------------\e[0m"
+echo "BIL  USERNAME          EXPIRED "
+echo -e "\e[36m---------------------------------\e[0m"
+count=1
+total=0
+	cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
+	totalaccounts=`cat /tmp/expirelist.txt | wc -l`
+	for((i=1; i<=$totalaccounts; i++ )); do
+	tuserval=`head -n $i /tmp/expirelist.txt | tail -n 1`
+		username=`echo $tuserval | cut -f1 -d:`
+		userexp=`echo $tuserval | cut -f2 -d:`
+		userexpireinseconds=$(( $userexp * 86400 ))
+		todaystime=`date +%s`
+		expired="$(chage -l $username | grep "Account expires" | awk -F": " '{print $2}')"
+		if [ $userexpireinseconds -lt $todaystime ] ; then
+			printf "%-4s %-15s %-10s %-3s\n" "$count." "$username" "$expired"
+			count=$((count+1))
+      total=$((total+1))
+		fi
+	done
+	echo -e "\e[36m---------------------------------\e[0m"
+	echo -e "    TOTAL EXPIRED USER : \e[31m$total\e[0m"
+	echo -e "\e[36m---------------------------------\e[0m"
+rm -r /tmp/*.txt
+}
+
+function not_expired_users(){
+clear
+echo -e "\e[33m※\e[0m \e[34mPOWER BY KINGKONGVPN™ SERVER\e[0m \e[33m※\e[0m"
+echo -e "\e[36m---------------------------------\e[0m"
+echo "BIL  USERNAME          EXPIRED "
+echo -e "\e[36m---------------------------------\e[0m"
+count=1
+total=0
+    cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
+    totalaccounts=`cat /tmp/expirelist.txt | wc -l`
+    for((i=1; i<=$totalaccounts; i++ )); do
+    tuserval=`head -n $i /tmp/expirelist.txt | tail -n 1`
+        username=`echo $tuserval | cut -f1 -d:`
+        userexp=`echo $tuserval | cut -f2 -d:`
+        userexpireinseconds=$(( $userexp * 86400 ))
+        todaystime=`date +%s`
+        expired="$(chage -l $username | grep "Account expires" | awk -F": " '{print $2}')"
+        if [ $userexpireinseconds -gt $todaystime ] ; then
+        printf "%-4s %-15s %-10s %-3s\n" "$count." "$username" "$expired"
+        count=$((count+1))
+        total=$((total+1))
+        fi
+    done
+	echo -e "\e[36m---------------------------------\e[0m"
+	echo -e "  TOTAL NOT EXPIRED USER : \e[32m$total\e[0m "
+	echo -e "\e[36m---------------------------------\e[0m"
+rm -r /tmp/*.txt
+}
+
+function v2ray_menu(){
+if [[ -e /etc/v2ray/config.json ]]; then
+		clear
+v2rayy.sh
+else
+clear
+		echo -e "${color1}========================================${color3}"
+        echo -e "* ${color2}SCRIPT AUTO INSTALL BY KingKongVPN ${color3}*"
+        echo -e "${color1}========================================${color3}"
+		read -p "Do You Want To Install V2ray?(y/n): " cekk
+if [ "$cekk" = "y" ]; then
+wget -O /root/insv2ray "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/V2ray/insv2ray"
+chmod +x insv2ray
+./insv2ray
+rm wg
+echo -e "Installation Finished"
+read -n1 -r -p "Press Any Key To Reboot VPS    "
+reboot
+else 
+echo "Installation Cancelled!"
+fi
+fi
+}
+
+function wireguard_menu(){
+if [[ -e /etc/wireguard/params ]]; then
+wireguard.sh
+else
+		echo -e "${color1}========================================${color3}"
+        echo -e "* ${color2}SCRIPT AUTO INSTALL BY KingKongVPN ${color3}*"
+        echo -e "${color1}========================================${color3}"
+		read -p "Do You Want To Install Wireguard?(y/n): " cekk
+if [ "$cekk" = "y" ]; then
+wget -O /root/wg "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Wireguard/wg"
+chmod +x wg
+./wg
+rm wg
+echo -e "Installation Finished"
+read -n1 -r -p "Press Any Key To Reboot VPS    "
+reboot
+else 
+echo "Installation Cancelled!"
+fi
+fi
+}
+
+function shadowsocks_menu(){
+if [[ -e /etc/shadowsocks-libev/akun.conf ]]; then
+shadowsocks.sh
+else
+		echo -e "${color1}========================================${color3}"
+        echo -e "* ${color2}SCRIPT AUTO INSTALL BY KingKongVPN ${color3}*"
+        echo -e "${color1}========================================${color3}"
+		read -p "Do You Want To Install Shadowsocks?(y/n): " cekk
+if [ "$cekk" = "y" ]; then
+wget -O /root/instss "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Shadowsocks/instss"
+chmod +x instss
+./instss
+rm instss
+wget -O /root/instssr "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Shadowsocks/instssr"
+chmod +x instssr
+./instssr
+rm instssr
+echo -e "Installation Finished"
+read -n1 -r -p "Press Any Key To Reboot VPS    "
+reboot
+else 
+echo "Installation Cancelled!"
+fi
+fi
+}
+
+clear
+echo " ";
+echo -e "\e[36m※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※
+※                                                   ※
+※\e[0m       [WELCOME MY SYSTEM KINGKONGVPN VPS]         \e[36m※
+※                                                   ※
+※\e[0m        \e[32mWhatsApp\e[0m    \e[33m:\e[0m \e[34m+60178760080\e[0m                 \e[36m※
+※\e[0m        \e[32mTelegram\e[0m    \e[33m:\e[0m \e[34m@xiihaiqal\e[0m                   \e[36m※
+※                                                   ※
+※\e[0m         COPYRIGHT \e[31m©\e[0m KINGKONGVPN™ 2021 \e[31m®\e[0m           \e[36m※
+※                                                   ※
+※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※\e[0m
+";
+PS3='
+Please Enter Your Choice From 1 → 20 : '
+options=(
+"Add User" "Renew User" "Delete User" "Create User Trial" "Generate New User" "User List" "User Lock" "User Unlock" "Change User Password" "Monitor SSH/Dropbear" "Expired Users" "Users Not Expired" "Edit Port" "Speedtest Server" "Delete & List All Expired Users" "V2ray Menu" "Wireguard Menu" "Shadowsocks Menu" "Update Script Menu" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Add User")
+            create_user
+	        break
+            ;; 
+        "Renew User")
+            renew_user
+            break
+            ;;
+        "Delete User")
+            delete_user
+            break
+             ;;
+		"Edit Port")	
+            edit-port
+			break
+			;;	
+	"Monitor SSH/Dropbear")
+            mon_ssh
+            break
+            ;;		
+	"User List")
+            user_list
+            break
+            ;;	
+   "Change User Password")
+        user-password
+          break
+           ;;
+	"RAM VPS Status")
+		    free -h | grep -v + > /tmp/ramcache
+            cat /tmp/ramcache | grep -v "Swap"
+            break
+            ;;	
+		"Users Not Expired")
+			not_expired_users
+			break
+			;;
+		"Expired Users")
+			expired_users
+			break
+			;;
+                 "Autokill Multy Login ID")
+                       autokill
+                         break
+                          ;;
+		"Used Data By Users")
+			used_data
+			break
+			;;
+		"Auto Restart Server")
+			auto-reboot
+			break
+			;;
+                "Create User Trial")
+                     trial
+                     break
+                      ;;
+                "Generate New User")
+                   user-generate
+                     break
+                       ;;             
+                 "Speedtest Server")
+                   speedtest
+                     break
+                      ;;
+                 "User Lock")
+                  user-lock
+                   break
+                     ;;
+	          "User Unlock")
+                    user-unlock
+                      break
+                       ;;              
+        	"Change Password")
+			passwd
+			break
+			;;
+		"Delete & List All Expired Users")
+			# Delete, List All Expired ID, Lock Expired ID silently
+			count=1
+			#echo "---------------------------------------------" > /home/vps/public_html/new_expuser.txt
+			cat /etc/passwd | cut -d: -f1 > /tmp/alluser.txt
+			cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
+			totalaccounts=`cat /tmp/expirelist.txt | wc -l`
+			for((i=1; i<=$totalaccounts; i++ )); do
+			tuserval=`head -n $i /tmp/expirelist.txt | tail -n 1`
+				username=`echo $tuserval | cut -f1 -d:`
+				userexp=`echo $tuserval | cut -f2 -d:`
+				userexpireinseconds=$(( $userexp * 86400 ))
+				todaystime=`date +%s`
+				expired="$(chage -l $username | grep "Account expires" | awk -F": " '{print $2}')"
+				if [ $userexpireinseconds -lt $todaystime ] ; then
+					passwd -l $username > /dev/null 2>&1
+					userdel $username > /dev/null
+					egrep "^$username" /etc/passwd >/dev/null
+					SELLER="$(getent passwd $username | cut -d ':' -f 5 | cut -d ',' -f 1)"
+					printf "%-4s %-15s %-10s %-3s\n" "  " "$username" "$SELLER" "$expired" >> /home/vps/public_html/new_expuser.txt
+					count=$((count+1))
+					
+				fi
+				done
+				rm -r /tmp/*.txt
+				
+				cat /home/vps/public_html/expuser.txt >> /home/vps/public_html/new_expuser.txt
+				rm /home/vps/public_html/expuser.txt
+				mv /home/vps/public_html/new_expuser.txt /home/vps/public_html/expuser.txt
+				
+			# List Expired ID
+			clear
+			echo "All Expired User Done Block & Deleted!"
+			echo " "
+			echo "User expired history;"
+			echo -e "\e[36m---------------------------------------------";
+			echo -e "\e[32m ==> USERNAME       SELLER     EXPIRED DATE  ";
+			echo -e "\e[36m---------------------------------------------\e[0m";
+			sed -n 1,20p /home/vps/public_html/expuser.txt
+			echo -e "\e[36m---------------------------------------------\e[0m";
+			break
+			;;
+	    "V2ray Menu")
+            v2ray_menu
+            break
+			;;
+	    "Wireguard Menu")
+            wireguard_menu
+            break
+			;;
+	    "Shadowsocks Menu")
+            shadowsocks_menu
+            break			
+            ;;  			
+		"Update Script Menu")
+			clear
+			            wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
+                        wget -O /usr/local/bin/m "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
+                        wget -O /usr/local/bin/kingkongvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
+                        wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-password"
+                        wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/trial"
+                        wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-lock"
+                        wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-unlock"
+						wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-generate"
+						wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/edit-port"
+						wget -O /usr/local/bin/shadowsocks.sh "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/shadowsocks.sh"
+						wget -O /usr/local/bin/v2rayy.sh "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/v2rayy.sh"
+						wget -O /usr/local/bin/wireguard.sh "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/wireguard.sh"
+                        clear
+                        echo "-------KingKongVPN-------"
+                        echo "Script Menu Has Been Updated"
+                        break
+			;;
+        "Quit")
+            break
+            ;;
+        *) echo invalid option;;
+    esac
+done
+
