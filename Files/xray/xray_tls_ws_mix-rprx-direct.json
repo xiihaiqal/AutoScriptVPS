@@ -36,8 +36,8 @@
           "minVersion": "1.2",
           "certificates": [
             {
-              "certificateFile": "/iriszz/xray/xray.crt",
-              "keyFile": "/iriszz/xray/xray.key"
+              "certificateFile": "/xiihaiqal/xray/xray.crt",
+              "keyFile": "/xiihaiqal/xray/xray.key"
             }
           ]
         }
