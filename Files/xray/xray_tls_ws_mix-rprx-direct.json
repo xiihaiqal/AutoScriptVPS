@@ -6,10 +6,15 @@
   },
   "inbounds": [
     {
-      "port": 453,
+      "port": 6000,
       "protocol": "vless",
       "settings": {
-        "clients": [],
+        "clients": [
+          {
+            "id": "xx",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
         "decryption": "none",
         "fallbacks": [
           {
@@ -24,7 +29,7 @@
           },
           {
             "dest": 60002,
-            "path": "/xray",
+            "path": "/xiihaiqal",
             "xver": 1
           }
         ]
@@ -36,8 +41,12 @@
           "minVersion": "1.2",
           "certificates": [
             {
-              "certificateFile": "/xiihaiqal/xray/xray.crt",
-              "keyFile": "/xiihaiqal/xray/xray.key"
+              "certificateFile": "/usr/local/etc/xray/self_signed_cert.pem",
+              "keyFile": "/usr/local/etc/xray/self_signed_key.pem"
+            },
+            {
+              "certificateFile": "/xiihaiqal/xray.crt",
+              "keyFile": "/xiihaiqal/xray.key"
             }
           ]
         }
@@ -55,7 +64,11 @@
       "listen": "127.0.0.1",
       "protocol": "vless",
       "settings": {
-          "clients": [],
+          "clients": [
+              {
+                  "id": "xx"
+              }
+          ],
           "decryption": "none"
       },
       "streamSettings": {
@@ -63,7 +76,7 @@
           "security": "none",
           "wsSettings": {
               "acceptProxyProtocol": true,
-              "path": "/xray"
+              "path": "xx"
           }
       }
   }
