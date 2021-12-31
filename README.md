@@ -33,7 +33,7 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 
 ### Port :
 * OpenSSH Port : 22
-* Nginx Port   : 80
+* Nginx Port   : 81
 * Privoxy Port : 8181 8086
 * Dropbear Port: 442 555
 * OpenVPN Port : 110. 25000
@@ -43,8 +43,7 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 
 ### Feature : 
 * Webmin http://[ip]:10000/
-* OpenVPN Download http://[ip]:80
-* OpenVPN Monitor http://[ip]:89
+* OpenVPN Download http://[ip]:81
 * Timezone : Asia/Kuala_Lumpur
 * Fail2Ban : [on]
 * Torrent Block : [on]
