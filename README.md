@@ -44,6 +44,7 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
 ### Feature : 
 * Webmin http://[ip]:10000/
 * OpenVPN Download http://[ip]:81
+* OpenVPN Monitor http://[ip]:89
 * Timezone : Asia/Kuala_Lumpur
 * Fail2Ban : [on]
 * Torrent Block : [on]
