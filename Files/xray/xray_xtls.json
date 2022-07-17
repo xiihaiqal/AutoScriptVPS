@@ -31,13 +31,9 @@
           "minVersion": "1.2",
           "certificates": [
             {
-              "certificateFile": "/metavpn/xray/xray.crt",
-              "keyFile": "/metavpn/xray/xray.key"
+              "certificateFile": "/xiihaiqal/xray/xray.crt",
+              "keyFile": "/xiihaiqal/xray/xray.key"
             },
-            {
-              "certificateFile": "/usr/local/etc/xray/self_signed_cert.pem",
-              "keyFile": "/usr/local/etc/xray/self_signed_key.pem"
-            }
           ]
         }
       },
