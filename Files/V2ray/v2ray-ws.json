@@ -6,7 +6,7 @@
   },
   "inbounds": [
     {
-      "port": 80,
+      "port": 82,
       "protocol": "vmess",
       "settings": {
         "clients": []
