@@ -1,0 +1,42 @@
+		wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
+		wget -O /usr/local/bin/m "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
+		wget -O /usr/local/bin/autokill "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/autokill"
+		wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-generate"
+		wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-lock"
+		wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-unlock"
+		wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/auto-reboot"
+		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-password"
+		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/trial"
+		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/common-password"
+		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/edit-port"
+		wget -O /usr/local/bin/details_user "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/details_user"
+		wget -O /usr/local/bin/sshmenu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/sshmenu"
+		wget -O /usr/local/bin/vlessmenu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/vlessmenu"
+		wget -O /usr/local/bin/vmessmenu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/vmessmenu"
+		wget -O /usr/local/bin/trojanmenu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/trojanmenu"
+		wget -O /usr/local/bin/ssmenu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/ssmenu"
+		wget -O /usr/local/bin/domains "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/domains"
+		wget -O /usr/local/bin/dns-change "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/dns-change"
+		wget -O /usr/local/bin/media-check "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/media-check"
+		wget -O /usr/local/bin/xp "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Xray/xp"
+		chmod +x /usr/local/bin/sshmenu
+		chmod +x /usr/local/bin/media-check
+		chmod +x /usr/local/bin/dns-change
+		chmod +x /usr/local/bin/vlessmenu
+		chmod +x /usr/local/bin/vmessmenu
+		chmod +x /usr/local/bin/trojanmenu
+		chmod +x /usr/local/bin/ssmenu
+		chmod +x /usr/local/bin/domains
+		chmod +x /usr/local/bin/xp
+		chmod +x /usr/local/bin/edit-port
+		chmod +x /etc/pam.d/common-password
+		chmod +x /usr/local/bin/menu
+		chmod +x /usr/local/bin/m
+		chmod +x /usr/local/bin/autokill 
+		chmod +x /usr/local/bin/user-generate  
+		chmod +x /usr/local/bin/user-unlock
+		chmod +x /usr/local/bin/user-lock
+		chmod +x /usr/local/bin/auto-reboot
+		chmod +x /usr/local/bin/user-password
+		chmod +x /usr/local/bin/details_user
+		chmod +x /usr/local/bin/trial
