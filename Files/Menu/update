@@ -40,3 +40,4 @@
 		chmod +x /usr/local/bin/user-password
 		chmod +x /usr/local/bin/details_user
 		chmod +x /usr/local/bin/trial
+		rm update
