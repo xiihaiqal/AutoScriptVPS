@@ -28,7 +28,14 @@ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript
    </p>
    
 
+## Update Changelog :
 
+### Changelog :
+* Added Xray Multiport
+* Change Ui
+* Add auto remove expired user
+* add many feature in menu
+  
 ## Description :
 
 ### Port :
