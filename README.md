@@ -1,4 +1,4 @@
-<h2 align="center">AutoScript Install SSH & OpenVPN For Debian VPS By KingKongVPN <img src="https://img.shields.io/badge/Version-2.0.4-blue.svg"></h2>
+<h2 align="center">AutoScript Install SSH & OpenVPN For Debian VPS By KingKongVPN <img src="https://img.shields.io/badge/Version-3.0.4-blue.svg"></h2>
 
 
 <h2 align="center"> Supported Linux Distribution</h2>
